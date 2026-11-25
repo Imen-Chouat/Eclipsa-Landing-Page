@@ -42,7 +42,7 @@ export default function Header() {
 
   return (
     <header className="w-full">
-      <div className="relative mx-auto flex h-[104px]  items-center justify-between rounded-b-[24px] bg-[#380E5D]/100 px-6 shadow-[0_10px_9.3px_0_rgba(0,0,0,0.29)] sm:px-10 lg:px-[60px]">
+      <div className="relative mx-auto flex h-[104px]  items-center justify-between rounded-b-[24px] bg-[#380E5D]/80 px-6 shadow-[0_10px_9.3px_0_rgba(0,0,0,0.29)] sm:px-10 lg:px-[60px]">
         {/* Logo */}
         <a href="/" className="flex shrink-0 items-center gap-4">
           <img
