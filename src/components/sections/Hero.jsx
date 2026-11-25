@@ -103,7 +103,7 @@ export default function Hero() {
           </a>
         </div>
 
-        <div className="lg:col-span-6 self-stretch relative flex flex-col items-center lg:items-end justify-end min-h-[380px] -mt-28 sm:-mt-32 lg:mt-0">
+        <div className="lg:col-span-6 self-stretch relative flex flex-col items-center lg:items-end justify-end min-h-[380px] -mt-6 sm:-mt-10 lg:mt-0">
           <img
             src={heroSilhouette}
             alt=""

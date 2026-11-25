@@ -9,45 +9,48 @@ export default function Background() {
     const ctx = canvas.getContext('2d');
 
     let animationFrameId;
+    let isMobile = window.innerWidth < 768;
 
     const handleResize = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
+      isMobile = window.innerWidth < 768;
     };
     handleResize();
     window.addEventListener('resize', handleResize);
 
-    // 1. Soft Vanishing Stars (Relocate to a new random spot after fading out)
-    const starCount = 130;
+    // 1. Soft Vanishing Stars (Fewer on mobile so it stays clean)
+    const maxStars = isMobile ? 45 : 130;
     const createStar = (randomInitialAlpha = false) => ({
       x: Math.random() * canvas.width,
       y: Math.random() * canvas.height,
       vx: (Math.random() - 0.5) * 0.08,
       vy: (Math.random() - 0.5) * 0.08,
-      size: Math.random() * 1.8 + 0.6,
+      size: Math.random() * (isMobile ? 1.4 : 1.8) + 0.6,
       alpha: randomInitialAlpha ? Math.random() * 0.8 : 0,
       maxAlpha: Math.random() * 0.65 + 0.3,
-      fadeSpeed: Math.random() * 0.0035 + 0.0015, // Slow fade in & out
+      fadeSpeed: Math.random() * 0.0035 + 0.0015,
       phase: randomInitialAlpha && Math.random() < 0.5 ? 'out' : 'in',
       isWhiteGlow: Math.random() < 0.3,
     });
 
-    const stars = Array.from({ length: starCount }, () => createStar(true));
+    const stars = Array.from({ length: maxStars }, () => createStar(true));
 
-    // 2. Subtle Sky Lights (Soft white & purple ambient light pools)
+    // 2. Subtle Sky Lights (Fewer on mobile)
+    const extraLightCount = isMobile ? 3 : 8;
     const skyLights = [
       // Top-left white/lavender glow behind the Eclipsa logo
       {
         xRatio: 0.12,
         yRatio: 0.1,
-        radius: 260,
+        radius: isMobile ? 180 : 260,
         color: 'rgba(255, 255, 255, ',
         alpha: 0.14,
         vx: 0,
         vy: 0,
         static: true,
       },
-      ...Array.from({ length: 8 }, () => {
+      ...Array.from({ length: extraLightCount }, () => {
         const isWhite = Math.random() < 0.35;
         return {
           x: Math.random() * canvas.width,
@@ -58,8 +61,8 @@ export default function Background() {
           color: isWhite
             ? 'rgba(255, 255, 255, '
             : Math.random() < 0.5
-              ? 'rgba(115, 0, 215, ' // #7300D7
-              : 'rgba(56, 14, 93, ', // #380E5D
+              ? 'rgba(115, 0, 215, '
+              : 'rgba(56, 14, 93, ',
           alpha: isWhite ? Math.random() * 0.06 + 0.02 : Math.random() * 0.16 + 0.05,
           fadeSpeed: Math.random() * 0.0008 + 0.0003,
           fadeDir: Math.random() < 0.5 ? 1 : -1,
@@ -130,14 +133,12 @@ export default function Background() {
           }
         } else {
           star.alpha -= star.fadeSpeed;
-          // Once completely vanished, respawn in a brand-new random position
           if (star.alpha <= 0) {
             stars[idx] = createStar(false);
             return;
           }
         }
 
-        // Soft outer halo
         const glowRadius = star.size * 3.5;
         const starGrad = ctx.createRadialGradient(
           star.x,
@@ -161,7 +162,6 @@ export default function Background() {
         ctx.arc(star.x, star.y, glowRadius, 0, Math.PI * 2);
         ctx.fill();
 
-        // Crisp bright center point
         ctx.fillStyle = `rgba(255, 255, 255, ${star.alpha})`;
         ctx.beginPath();
         ctx.arc(star.x, star.y, star.size * 0.65, 0, Math.PI * 2);
@@ -227,8 +227,8 @@ export default function Background() {
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 overflow-hidden z-0"
       >
-        {/* Top Eclipse */}
-        <div className="absolute -top-28 left-1/2 md:left-[56%] -translate-x-1/2 w-[300px] h-[300px] md:w-[390px] md:h-[390px] animate-eclipse blur-[4px]">
+        {/* Top Eclipse: Smaller on mobile (210px), full size on desktop (390px) */}
+        <div className="absolute -top-20 md:-top-28 left-1/2 md:left-[56%] -translate-x-1/2 w-[210px] h-[210px] md:w-[390px] md:h-[390px] animate-eclipse blur-[4px]">
           <div
             className="absolute inset-0 rounded-full blur-md"
             style={{
@@ -239,7 +239,7 @@ export default function Background() {
             }}
           />
           <div
-            className="absolute inset-[14px] rounded-full bg-[#040417]"
+            className="absolute inset-[10px] md:inset-[14px] rounded-full bg-[#040417]"
             style={{
               boxShadow:
                 'inset 0 -14px 28px rgba(216, 180, 254, 0.75), inset 0 -4px 12px #7300D7',
@@ -248,7 +248,7 @@ export default function Background() {
         </div>
 
         {/* Bottom Large Eclipse (Above Footer) */}
-        <div className="absolute bottom-24 md:bottom-20 left-1/2 -translate-x-1/2 w-[460px] h-[460px] md:w-[680px] md:h-[680px] animate-eclipse blur-[4px]">
+        <div className="absolute bottom-24 md:bottom-20 left-1/2 -translate-x-1/2 w-[340px] h-[340px] md:w-[680px] md:h-[680px] animate-eclipse blur-[4px]">
           <div
             className="absolute inset-0 rounded-full blur-md"
             style={{
@@ -259,7 +259,7 @@ export default function Background() {
             }}
           />
           <div
-            className="absolute inset-[18px] rounded-full bg-[#040417]"
+            className="absolute inset-[14px] md:inset-[18px] rounded-full bg-[#040417]"
             style={{
               boxShadow:
                 'inset 0 18px 36px rgba(233, 213, 255, 0.85), inset 0 6px 18px #7300D7',
