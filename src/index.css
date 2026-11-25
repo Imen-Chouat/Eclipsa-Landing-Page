@@ -1,1 +1,55 @@
 @import "tailwindcss";
+
+@font-face {
+  font-family: "Glacial Indifference";
+  src: url("./assets/fonts/GlacialIndifference-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Glacial Indifference";
+  src: url("./assets/fonts/GlacialIndifference-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Playfair Display";
+  src: url("./assets/fonts/PlayfairDisplay-VariableFont_wght.ttf") format("truetype");
+  font-weight: 400 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  --font-gi: "Glacial Indifference", ui-sans-serif, system-ui, sans-serif;
+  --font-pfd: "Playfair Display", Georgia, serif;
+}
+
+@layer base {
+  body {
+    margin: 0;
+    font-family: "Glacial Indifference", sans-serif;
+    background-color: #040417;
+    color: #ffffff;
+    overflow-x: hidden;
+  }
+}
+
+@keyframes eclipse-pulse {
+  0%, 100% {
+    opacity: 0.88;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.03);
+  }
+}
+
+.animate-eclipse {
+  animation: eclipse-pulse 7s ease-in-out infinite;
+}
