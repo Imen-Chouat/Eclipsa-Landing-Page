@@ -56,7 +56,7 @@ export default function Agenda() {
                         className="absolute left-0 top-1/2 h-3.5 w-3.5 -translate-y-1/2 rounded-full bg-white"
                       />
 
-                      <div className="flex items-center gap-4 rounded-[20px] bg-gradient-to-r from-[#4A1D79]/90 via-[#42176D]/90 to-[#3A1263]/90 px-5 py-[14px] ring-1 ring-white/5 sm:gap-6 sm:px-6">
+                      <div className="flex items-center gap-4 rounded-[20px] bg-gradient-to-r from-[#4A1D79]/70 via-[#42176D]/70 to-[#3A1263]/70 px-5 py-[14px] ring-1 ring-white/5 sm:gap-6 sm:px-6">
                         <span className="w-[92px] shrink-0 font-glacial text-lg text-white sm:w-[118px] sm:text-xl">
                           {item.time}
                         </span>
