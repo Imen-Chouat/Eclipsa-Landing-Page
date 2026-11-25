@@ -13,21 +13,17 @@ export default function Header() {
   const linkRefs = useRef([]);
   const activeRef = useRef(active);
 
-  // Measure the active link so the pill can slide to it. Stable identity so
-  // async callers (fonts, resize) always read the current active link.
   const measure = useCallback(() => {
     const link = linkRefs.current[NAV_LINKS.indexOf(activeRef.current)];
     if (!link || link.offsetWidth === 0) return;
     setPill({ left: link.offsetLeft, width: link.offsetWidth });
   }, []);
 
-  // Runs after the new active styles are applied, so the width is final.
   useLayoutEffect(() => {
     activeRef.current = active;
     measure();
   }, [active, measure]);
 
-  // Keep the pill aligned through resizes and the Playfair font swap.
   useEffect(() => {
     const nav = navRef.current;
     if (!nav) return;
@@ -41,19 +37,19 @@ export default function Header() {
   }, [measure]);
 
   return (
-    <header className="w-full">
-      <div className="relative mx-auto flex h-[104px]  items-center justify-between rounded-b-[24px] bg-[#380E5D]/100 px-6 shadow-[0_10px_9.3px_0_rgba(0,0,0,0.29)] sm:px-10 lg:px-[60px]">
+    <header className="fixed inset-x-0 top-0 z-50 w-full">
+      <div className="relative mx-auto flex h-[72px] items-center justify-between rounded-b-[20px] bg-[#380E5D] px-6 shadow-[0_10px_9.3px_0_rgba(0,0,0,0.29)] sm:px-10 lg:px-[60px]">
         {/* Logo */}
-        <a href="/" className="flex shrink-0 items-center gap-4">
+        <a href="#home" className="flex shrink-0 items-center gap-3">
           <img
             src={astrotechLogo}
             alt="Astrotech"
-            className="h-10 w-auto sm:h-12"
+            className="h-8 w-auto sm:h-9"
           />
           <img
             src={eclipsaLogo}
             alt="Eclipsa"
-            className="h-[72px] w-auto sm:h-[80px]"
+            className="h-12 w-auto sm:h-14"
           />
         </a>
 
@@ -63,7 +59,7 @@ export default function Header() {
           {pill && (
             <span
               aria-hidden="true"
-              className="pointer-events-none absolute left-0 top-1/2 h-12 rounded-2xl bg-[#FBF6FF] transition-[width,transform] duration-300 ease-out motion-reduce:transition-none"
+              className="pointer-events-none absolute left-0 top-1/2 h-10 rounded-xl bg-[#FBF6FF] transition-[width,transform] duration-300 ease-out motion-reduce:transition-none"
               style={{
                 width: pill.width,
                 transform: `translate(${pill.left}px, -50%)`,
@@ -80,7 +76,7 @@ export default function Header() {
               href={`#${link.toLowerCase()}`}
               aria-current={active === link ? "page" : undefined}
               onClick={() => setActive(link)}
-              className={`relative z-10 rounded-full px-8 py-2.5 font-playfair text-lg transition-colors duration-300 lg:text-xl ${
+              className={`relative z-10 rounded-full px-6 py-2 font-playfair text-base transition-colors duration-300 lg:text-lg ${
                 active === link
                   ? "font-semibold text-[#1A0B26]"
                   : "text-[#E3D5F0] hover:text-white"
@@ -97,7 +93,7 @@ export default function Header() {
           onClick={() => setMenuOpen((open) => !open)}
           aria-label="Toggle navigation"
           aria-expanded={menuOpen}
-          className="flex h-11 w-11 items-center justify-center rounded-full text-white/90 transition-colors hover:bg-white/10 md:hidden"
+          className="flex h-10 w-10 items-center justify-center rounded-full text-white/90 transition-colors hover:bg-white/10 md:hidden"
         >
           <svg
             viewBox="0 0 24 24"
@@ -117,7 +113,7 @@ export default function Header() {
 
         {/* Mobile menu */}
         {menuOpen && (
-          <nav className="absolute inset-x-0 top-full z-20 mt-2 flex origin-top animate-menu-in flex-col gap-1 rounded-2xl bg-[#380E5D] p-3 shadow-[0_10px_9.3px_0_rgba(0,0,0,0.29)] motion-reduce:animate-none md:hidden">
+          <nav className="animate-menu-in absolute inset-x-4 top-full z-20 mt-2 flex origin-top flex-col gap-1 rounded-2xl bg-[#380E5D] p-3 shadow-[0_10px_9.3px_0_rgba(0,0,0,0.29)] motion-reduce:animate-none md:hidden">
             {NAV_LINKS.map((link) => (
               <a
                 key={link}
@@ -127,7 +123,7 @@ export default function Header() {
                   setActive(link);
                   setMenuOpen(false);
                 }}
-                className={`font-playfair rounded-xl px-5 py-3 text-lg transition-colors duration-300 ${
+                className={`font-playfair rounded-xl px-5 py-2.5 text-base transition-colors duration-300 ${
                   active === link
                     ? "bg-[#FBF6FF] font-semibold text-[#1A0B26]"
                     : "text-[#E3D5F0] hover:bg-white/10 hover:text-white"

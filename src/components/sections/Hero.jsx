@@ -97,7 +97,7 @@ export default function Hero() {
             href={REGISTRATION_FORM_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center px-10 py-3.5 rounded-full bg-[#FCF4FE] hover:bg-[#E0D0F0] text-[#1a0836] font-pfd font-bold text-xl md:text-[22px] shadow-[0_0_25px_rgba(245,235,255,0.35)] hover:shadow-[0_0_35px_rgba(100,125,255,0.8)] transition-all duration-300"
+            className="inline-flex items-center justify-center px-10 py-3.5 rounded-full bg-[#FCF4FE] hover:bg-[#E0D0F0] text-[#1a0836] font-pfd font-bold text-xl md:text-[22px] shadow-xl transition-all duration-700 ease-out hover:scale-[1.05] hover:shadow-purple-400/40"
           >
             Register Now
           </a>

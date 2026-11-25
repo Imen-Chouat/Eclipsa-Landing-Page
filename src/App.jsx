@@ -12,8 +12,7 @@ export default function App() {
 
       <div className="relative z-10 flex flex-col min-h-screen">
         <Header />
-        <div className="h-[1600px]" />
-        <main className="flex-grow">
+        <main main className="flex-grow pt-[60px]">
           <Hero />
           <About />
           <Agenda />
