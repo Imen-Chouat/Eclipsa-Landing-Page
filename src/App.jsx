@@ -1,5 +1,5 @@
 import Background from './components/layout/Background';
-import Navbar from './components/layout/Navbar';
+import Header from './components/layout/Header';
 import Hero from './components/sections/Hero';
 import About from './components/sections/About';
 import Agenda from './components/sections/Agenda';
@@ -12,8 +12,8 @@ export default function App() {
       <Background />
 
       <div className="relative z-10 flex flex-col min-h-screen">
-        <Navbar />
-
+        <Header />
+        <div className="h-[1600px]" />
         <main className="flex-grow">
           <Hero />
           <About />

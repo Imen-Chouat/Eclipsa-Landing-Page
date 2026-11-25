@@ -1,1 +1,56 @@
 @import "tailwindcss";
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}
+
+@font-face {
+  font-family: "Glacial Indifference";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("./assets/fonts/GlacialIndifference-Regular.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Glacial Indifference";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("./assets/fonts/GlacialIndifference-Bold.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Nasalization";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("./assets/fonts/nasalization-rg.woff") format("woff");
+}
+
+@theme {
+  --font-playfair: "Playfair Display", ui-serif, Georgia, serif;
+  --font-glacial: "Glacial Indifference", ui-sans-serif, system-ui, sans-serif;
+  --font-nasalization: "Nasalization", ui-sans-serif, system-ui, sans-serif;
+
+  --animate-menu-in: menu-in 180ms ease-out;
+
+  @keyframes menu-in {
+    from {
+      opacity: 0;
+      transform: translateY(-8px) scale(0.98);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+}
