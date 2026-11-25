@@ -64,7 +64,7 @@ export default function Footer() {
       <div className="mx-auto  rounded-t-[32px] bg-[#380E5D]/80 px-6 py-10 font-glacial sm:px-10 lg:px-[60px] lg:py-12">
         <div className="flex flex-col gap-10 lg:flex-row lg:items-center lg:justify-between">
           {/* Brand, quote and organizer */}
-          <div className="max-w-[640px]">
+          <div className="max-w-[640px] text-center lg:text-left">
             <a href="/" className="inline-block">
               <img
                 src={eclipsaLogo}
@@ -73,15 +73,15 @@ export default function Footer() {
               />
             </a>
 
-            <p className="ml-4 mt-6 max-w-[500px] font-glacial text-xl leading-relaxed text-[#EDE6F7]/90 sm:text-2xl">
+            <p className="mx-auto mt-6 max-w-[500px] font-glacial text-xl leading-relaxed text-[#EDE6F7]/90 sm:text-2xl lg:mx-0 lg:ml-4 lg:text-left">
               <span className="mr-1">&ldquo;</span>
               Aim towards the moon and you might land on a star or Jupiter
               <span className="ml-1">&rdquo;</span>
             </p>
 
-            <div className="mt-10 flex flex-wrap items-end gap-x-10 gap-y-6">
+            <div className="mt-10 flex flex-wrap items-end justify-center gap-x-10 gap-y-6 lg:justify-start">
   {/* Heading + logo, centered on each other */}
-  <div className="flex flex-col items-center gap-5 ml-8">
+  <div className="flex flex-col items-center gap-5 lg:ml-8">
     <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
       Organized by
     </h2>
@@ -93,7 +93,7 @@ export default function Footer() {
   </div>
 
   {/* Address */}
-  <div className="flex items-center gap-4 sm:mb-14">
+  <div className="flex items-center justify-center gap-4 sm:mb-14 lg:justify-start">
     <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#F6F2FB]">
       <svg
         viewBox="0 0 24 24"
