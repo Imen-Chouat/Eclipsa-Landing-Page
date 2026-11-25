@@ -1,5 +1,5 @@
 import eclipsaLogo from "../../assets/Eclipse logo.svg";
-import astrotechLogo from "../../assets/Astrotech logo 2.svg";
+import astrotechLogo from "../../assets/astrotech logo 2.svg";
 
 const NAV_LINKS = [
   { label: "Register", href: "#register" },

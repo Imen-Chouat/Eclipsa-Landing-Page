@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import eclipsaLogo from '../../assets/logo.svg';
+import eclipsaLogo from '../../assets/Logo.svg';
 import heroSilhouette from '../../assets/women.svg';
 
 // Replace this with your actual Google Form link
