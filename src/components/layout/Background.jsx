@@ -216,6 +216,7 @@ export default function Background() {
 
   return (
     <>
+      {/* Fixed Full-Screen Canvas for Sky, Lights & Realistic Stars */}
       <canvas
         ref={canvasRef}
         aria-hidden="true"
@@ -227,7 +228,7 @@ export default function Background() {
         className="pointer-events-none absolute inset-0 overflow-hidden z-0"
       >
         {/* Top Eclipse */}
-        <div className="absolute -top-28 left-1/2 md:left-[56%] -translate-x-1/2 w-[300px] h-[300px] md:w-[390px] md:h-[390px] animate-eclipse">
+        <div className="absolute -top-28 left-1/2 md:left-[56%] -translate-x-1/2 w-[300px] h-[300px] md:w-[390px] md:h-[390px] animate-eclipse blur-[4px]">
           <div
             className="absolute inset-0 rounded-full blur-md"
             style={{
@@ -247,7 +248,7 @@ export default function Background() {
         </div>
 
         {/* Bottom Large Eclipse (Above Footer) */}
-        <div className="absolute bottom-24 md:bottom-20 left-1/2 -translate-x-1/2 w-[460px] h-[460px] md:w-[680px] md:h-[680px] animate-eclipse">
+        <div className="absolute bottom-24 md:bottom-20 left-1/2 -translate-x-1/2 w-[460px] h-[460px] md:w-[680px] md:h-[680px] animate-eclipse blur-[4px]">
           <div
             className="absolute inset-0 rounded-full blur-md"
             style={{
