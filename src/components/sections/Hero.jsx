@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react';
 import eclipsaLogo from '../../assets/Logo.svg';
 import heroSilhouette from '../../assets/women.svg';
 
-// Replace this with your actual Google Form link
-const REGISTRATION_FORM_URL = 'https://forms.gle';
+
+const REGISTRATION_FORM_URL = 'https://forms.gle/owdCBY6tJizosCRh8';
 
 function SparkleIcon() {
   return (
