@@ -2,7 +2,7 @@ const AGENDA = [
   {
     day: "day 1 : Thursday 3rd December",
     items: [
-      { time: "17:00", title: "check-in" },
+      { time: "17:00", title: "Check-in" },
       { time: "18:00", title: "Opening Ceremony" },
       { time: "19:00", title: "Start of Action" },
       { time: "21:00", title: "Dinner Break" },
@@ -21,7 +21,7 @@ const AGENDA = [
   day: "day 3 : Saturday 5th December",
     items: [
       { time: "9:00", title: "Submission of work" },
-      { time: "10:00", title: "breakfest" },
+      { time: "10:00", title: "Breakfest" },
       { time: "11:00", title: "Presentation and pitching of projects " },
       { time: "14:00", title: "Announcement of winners and closing ceremony " },
     ],
