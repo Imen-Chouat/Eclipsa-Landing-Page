@@ -2,16 +2,28 @@ const AGENDA = [
   {
     day: "day 1 : Thursday 3rd December",
     items: [
-      { time: "6:30pm", title: "Opening Ceremony" },
-      { time: "7:30pm", title: "Start of Action" },
-      { time: "9:00pm", title: "Dinner Break" },
+      { time: "17:00", title: "check-in" },
+      { time: "18:00", title: "Opening Ceremony" },
+      { time: "19:00", title: "Start of Action" },
+      { time: "21:00", title: "Dinner Break" },
     ],
   },
   {
-    day: "day 2 : Thursday 4th December",
+    day: "day 2 : Friday 4th December",
     items: [
-      { time: "12:00pm", title: "Lunch break" },
-      { time: "12:00pm", title: "Lunch break" },
+      { time: "9:00", title: "Breakfest" },
+      { time: "11:30", title: "Lunch break" },
+      { time: "12:30", title: "Prayer break" },
+      { time: "17:00", title: "Coffee break" },
+    ],
+  },
+  {
+  day: "day 3 : Saturday 5th December",
+    items: [
+      { time: "9:00", title: "Submission of work" },
+      { time: "10:00", title: "breakfest" },
+      { time: "11:00", title: "Presentation and pitching of projects " },
+      { time: "14:00", title: "Announcement of winners and closing ceremony " },
     ],
   },
 ];
