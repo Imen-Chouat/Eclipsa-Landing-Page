@@ -21,7 +21,7 @@ function SparkleIcon() {
 }
 
 export default function Hero() {
-  const targetDate = new Date('2026-11-30T00:00:00').getTime();
+  const targetDate = new Date('2026-12-01T00:00:00').getTime();
 
   const calculateTimeLeft = () => {
     const now = Date.now();
